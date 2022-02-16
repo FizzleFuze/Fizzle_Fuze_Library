@@ -59,48 +59,48 @@ end
 function FFL_LogMessage(...)
     local Sev, Arg = nil, {...}
     local SevType = {"INFO", "DEBUG", "WARNING", "ERROR", "CRITICAL"}
+    local MsgLog = SharedModEnv["Fizzle_FuzeLog"]
 
     if #Arg == 0 then
-        print(ModName,"/?.lua CRITICAL: No error message!")
+        print("/?.lua CRITICAL: No error message!")
         FlushLogFile()
-        MsgLog[#MsgLog+1] = ModName.."/?.lua CRITICAL: No error message!"
+        MsgLog[#MsgLog+1] = "/?.lua CRITICAL: No error message!"
         SharedModEnv["Fizzle_FuzeLog"] = MsgLog
         return
     end
 
     for _, ST in ipairs(SevType) do
-        if Arg[2] == ST then --2nd arg = severity
-            Arg[2] = Arg[2]..": "
-            Sev = Arg[2]
+        if Arg[3] == ST then -- 3rd arg = severity
+            Arg[3] = Arg[3]..": "
+            Sev = Arg[3]
             break
         end
     end
 
     if not Sev then
         Sev = "DEBUG: "
-        Arg[2] = "DEBUG: "..Arg[2]
+        Arg[3] = "DEBUG: "..Arg[3]
     end
 
-    if (Sev == "DEBUG: " and Debugging == false) or (Sev == "INFO: " and Info == false) then
+    if (Sev == "DEBUG: " and FFL_Debugging == false) or (Sev == "INFO: " and Info == false) then
         return
     end
 
-    local MsgLog = SharedModEnv["Fizzle_FuzeLog"]
-    local Msg = ModName.."/"..Arg[1]..".lua "
-    for i = 2, #Arg do
+    local Msg = Arg[1].."/"..Arg[2]..".lua "
+    for i = 3, #Arg do
         Msg = Msg..tostring(Arg[i])
     end
     MsgLog[#MsgLog+1] = Msg
     SharedModEnv["Fizzle_FuzeLog"] = MsgLog
 
-    if Debugging == true or Info == true then
+    if FFL_Debugging == true then
         PrintLog()
     end
 end
 
 --wrapper logging function for this file
 local function Log(...)
-    FFL_LogMessage("LibMain", ...)
+    FFL_LogMessage(CurrentModDef.title, "LibMain", ...)
 end
 
 --translation strings
