@@ -36,7 +36,7 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 FFL_Debugging = false
 
 --print log messages to console and disk
-local function PrintLog()
+local function FFL_PrintLog()
     local MsgLog = SharedModEnv["Fizzle_FuzeLog"]
 
     if #MsgLog > 0 then
@@ -113,4 +113,13 @@ for k, _ in pairs(FFL_Translate.Text) do
     if not FFL_Translate.ID[k] then
         Log("ERROR", "Could not find valid translation ID for '", k, "'!")
     end
+end
+
+function OnMsg.NewHour()
+    if FFL_Debugging == true then
+        FFL_PrintLog()
+    end
+end
+function OnMsg.NewDay()
+    FFL_PrintLog()
 end
