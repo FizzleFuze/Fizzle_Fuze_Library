@@ -94,7 +94,7 @@ function FFL_LogMessage(...)
     SharedModEnv["Fizzle_FuzeLog"] = MsgLog
 
     if FFL_Debugging == true then
-        PrintLog()
+        FFL_PrintLog()
     end
 end
 
