@@ -34,38 +34,33 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 --logging variables
 FFL_Debugging = false
+FFL_Log = { "*** Fizzle_Fuze_Library loaded! *** "}
 
 --print log messages to console and disk
 local function FFL_PrintLog()
-    local MsgLog = SharedModEnv["Fizzle_FuzeLog"]
 
+    local MsgLog = FFL_Log
     if #MsgLog > 0 then
         for _, Msg in ipairs(MsgLog) do
             print(Msg)
         end
         FlushLogFile()
 
-        SharedModEnv["Fizzle_FuzeLog"] = {}
+        MsgLog = {}
         return
     end
-end
-
---setup cross-mod variables for log if needed
-if not SharedModEnv["Fizzle_FuzeLog"] then
-    SharedModEnv["Fizzle_FuzeLog"] = { "*** ", CurrentModDef.title," Loaded! ***" }
 end
 
 --main logging function
 function FFL_LogMessage(...)
     local Sev, Arg = nil, {...}
     local SevType = {"INFO", "DEBUG", "WARNING", "ERROR", "CRITICAL"}
-    local MsgLog = SharedModEnv["Fizzle_FuzeLog"]
+    local MsgLog = FFL_Log
 
     if #Arg == 0 then
         print("/?.lua CRITICAL: No error message!")
         FlushLogFile()
         MsgLog[#MsgLog+1] = "/?.lua CRITICAL: No error message!"
-        SharedModEnv["Fizzle_FuzeLog"] = MsgLog
         return
     end
 
@@ -82,7 +77,7 @@ function FFL_LogMessage(...)
         Arg[3] = "DEBUG: "..Arg[3]
     end
 
-    if (Sev == "DEBUG: " and FFL_Debugging == false) or (Sev == "INFO: " and Info == false) then
+    if Sev == "DEBUG: " or Sev == "INFO: " and not FFL_Debugging then
         return
     end
 
@@ -91,9 +86,8 @@ function FFL_LogMessage(...)
         Msg = Msg..tostring(Arg[i])
     end
     MsgLog[#MsgLog+1] = Msg
-    SharedModEnv["Fizzle_FuzeLog"] = MsgLog
 
-    if FFL_Debugging == true then
+    if FFL_Debugging then
         FFL_PrintLog()
     end
 end
@@ -103,15 +97,17 @@ local function Log(...)
     FFL_LogMessage(CurrentModDef.title, "LibMain", ...)
 end
 
---translation strings
-FFL_Translate = { ID = {}, Text = {} }
---Translate.Text['MoxieDisable'] = "Replaced by Hydrolysis Reactor."
+function FFL_Translate(TString)
+    local id = IsT(TString)
 
---get every string a unique ID
-for k, _ in pairs(FFL_Translate.Text) do
-    FFL_Translate.ID[k] = RandomLocId()
-    if not FFL_Translate.ID[k] then
-        Log("ERROR", "Could not find valid translation ID for '", k, "'!")
+    if type(id) == "number" then -- already has a translation
+        return id, TString
+    else
+        id = RandomLocId()
+        if type(id) ~= "number" then
+            Log("ERROR", "Failed to find ID for translation!")
+        end
+        return T(id, TString)
     end
 end
 
@@ -120,6 +116,7 @@ function OnMsg.NewHour()
         FFL_PrintLog()
     end
 end
+
 function OnMsg.NewDay()
     FFL_PrintLog()
 end

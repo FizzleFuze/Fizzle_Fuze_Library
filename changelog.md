@@ -1,8 +1,11 @@
+Version 1.4
+- Updated translation functions
+
 Version 1.3
-- another bugfix
+- Another bugfix
 
 Version 1.2
-- bugfix for FFL_ variables
+- Bugfix for FFL_ variables
 
 Version 1.1
-- created library
+- Created library
