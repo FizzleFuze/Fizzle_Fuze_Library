@@ -34,7 +34,7 @@ For more information on this, and how to apply and follow the GNU AGPL, see
 
 --logging variables
 FFL_Debugging = false
-FFL_Log = { "*** Fizzle_Fuze_Library loaded! *** "}
+FFL_Log = { "*** Fizzle Fuze's Library loaded! *** "}
 
 --print log messages to console and disk
 local function FFL_PrintLog()
