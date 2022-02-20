@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Fizzle_Fuze_Library.iml" filepath="$PROJECT_DIR$/Fizzle_Fuze_Library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Fizzle_Fuze_Library.iml" filepath="$PROJECT_DIR$/.idea/Fizzle_Fuze_Library.iml" />
     </modules>
   </component>
 </project>
