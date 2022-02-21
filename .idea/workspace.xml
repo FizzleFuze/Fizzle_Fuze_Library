@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="521605f0-1e4d-41d2-aec1-c797e15f64fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/UI/TextStyles.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Code/UI/XTemplates.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Info/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="521605f0-1e4d-41d2-aec1-c797e15f64fc" name="Changes" comment="tree update">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/LibMain.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/LibMain.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fizzle_Fuze_Library.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Info/changelog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/items.lua" beforeDir="false" afterPath="$PROJECT_DIR$/items.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/license.md" beforeDir="false" afterPath="$PROJECT_DIR$/Info/license.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/UI/TextStyles.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/UI/TextStyles.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/UI/XTemplates.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/UI/XTemplates.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Info/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/Info/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Info/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Info/changelog.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metadata.lua" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thumbnail.png" beforeDir="false" afterPath="$PROJECT_DIR$/Images/thumbnail.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +22,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="25NcgZ3O2hAgSZ76EaVrGXJH8M0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,8 +36,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="GitIgnore" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.scopes" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\nik\AppData\Roaming\Surviving Mars\Mods\Fizzle_Fuze_Library" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -44,6 +55,36 @@
       <option name="presentableId" value="Default" />
       <updated>1645371097613</updated>
     </task>
+    <task id="LOCAL-00001" summary="tree update">
+      <created>1645371189952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1645371189952</updated>
+    </task>
+    <task id="LOCAL-00002" summary="tree update">
+      <created>1645371341411</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1645371341411</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tree update" />
+    <option name="LAST_COMMIT_MESSAGE" value="tree update" />
   </component>
 </project>

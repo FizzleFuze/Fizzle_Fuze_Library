@@ -1,34 +1,39 @@
 --See LICENSE for copyright info
 
---logging variables
-FFL_Log = { "*** Fizzle Fuze's Library loaded! *** "}
-if not SharedModEnv["FFL_Debug"] then
-    SharedModEnv["FFL_Debug"] = false
+--setup global if needed
+if not FF then
+    FF = {
+        Lib = {
+            Debug = false,
+            MsgLog = { "*** Fizzle Fuze's Library loaded! ***" }
+        },
+        Funcs = { }
+    }
 end
 
 --print log messages to console and disk
-local function FFL_PrintLog()
+local function PrintLog()
 
-    if #FFL_Log > 0 then
-        for _, Msg in ipairs(FFL_Log) do
+    if #FF.Lib.MsgLog > 0 then
+        for _, Msg in ipairs(FF.Lib.MsgLog) do
             print(Msg)
         end
         FlushLogFile()
 
-        FFL_Log = {}
+        FF.Lib.MsgLog = {}
         return
     end
 end
 
 --main logging function
-function FFL_LogMessage(...)
+function FF.Funcs.LogMessage(...)
     local Sev, Arg = nil, {...}
     local SevType = {"INFO", "DEBUG", "WARNING", "ERROR", "CRITICAL"}
 
     if #Arg == 0 then
         print("/?.lua CRITICAL: No error message!")
         FlushLogFile()
-        FFL_Log[#FFL_Log+1] = "/?.lua CRITICAL: No error message!"
+        FF.Lib.MsgLog[#FF.Lib.MsgLog+1] = "/?.lua CRITICAL: No error message!"
         return
     end
 
@@ -45,7 +50,7 @@ function FFL_LogMessage(...)
         Arg[3] = "DEBUG: "..Arg[3]
     end
 
-    if (Sev == "DEBUG: " or Sev == "INFO: ") and not SharedModEnv["FFL_Debug"] then
+    if (Sev == "DEBUG: " or Sev == "INFO: ") and not FF.Lib.Debug then
         return
     end
 
@@ -53,19 +58,20 @@ function FFL_LogMessage(...)
     for i = 3, #Arg do
         Msg = Msg .. tostring(Arg[i])
     end
-    FFL_Log[#FFL_Log + 1] = Msg
+    FF.Lib.MsgLog[#FF.Lib.MsgLog + 1] = Msg
 
-    if SharedModEnv["FFL_Debug"] then
-        FFL_PrintLog()
+    if FF.Lib.Debug then
+        PrintLog()
     end
 end
 
 --wrapper logging function for this file
 local function Log(...)
-    FFL_LogMessage(CurrentModDef.title, "LibMain", ...)
+    FF.Lib.MsgLogMessage(CurrentModDef.title, "LibMain", ...)
 end
 
-function FFL_Translate(TString)
+--Translate function which automatically gets ID
+function FF.Funcs.Translate(TString)
     local id = IsT(TString)
 
     if type(id) == "number" then -- already has a translation
@@ -79,7 +85,8 @@ function FFL_Translate(TString)
     end
 end
 
-function FFL_FormatNumber(Number, AsT)
+--Format number as a pretty string or a T
+function FF.Funcs.FormatNumber(Number, AsT)
     AsT = AsT or false
 
     local Ret = InfobarObj.FmtRes(nil, Number)
@@ -89,16 +96,34 @@ function FFL_FormatNumber(Number, AsT)
     return Ret
 end
 
+--start yer engines
+local function Init()
+    if not FF.Funcs.CreateTextStyles() then
+        Log("CRITICAL", "Failed to initialize library! [Could not create text styles]")
+        return
+    end
+end
+
+--event handling
+OnMsg.CityStart = Init
+OnMsg.LoadGame = Init
+
+function OnMsg.ModsReloaded()
+    if MainCity then
+        Init()
+    end
+end
+
 function OnMsg.NewHour(Hour)
-    if SharedModEnv["FFL_Debug"] then
+    if FF.Lib.Debug then
         Log("New Hour: ", Hour)
-        FFL_PrintLog()
+        PrintLog()
     end
 end
 
 function OnMsg.NewDay(Day)
-    if SharedModEnv["FFL_Debug"] then
+    if FF.Lib.Debug then
         Log("New Day: ", Day)
     end
-    FFL_PrintLog()
+    PrintLog()
 end

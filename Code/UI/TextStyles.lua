@@ -2,71 +2,63 @@
 
 --wrapper logging function for this file
 local function Log(...)
-    FFL_LogMessage(CurrentModDef.title, "XTemplates", ...)
+    FF.Funcs.LogMessage(CurrentModDef.title, "TextStyles", ...)
 end
 
 --create/update text styles
-function FFL_CreateTextStyles()--returns success status
+function FF.Funcs.CreateTextStyles()--returns success status
     if not TextStyles then
-        Log("ERROR", "No text styles!")
+        Log("ERROR", "Text styles not loaded!")
         return false
     end
 
-    local TextStyle = {
-        Achievement = {
-            Title,
-            Text,
-            Text_2
+    local TextStyle = { PrimaryAchievement = {  } }
+
+        TextStyle.PrimaryAchievement.Title = {
+            DisabledRolloverTextColor = -10197916,
+            DisabledTextColor = -10197916,
+            RolloverTextColor = -727947,
+            TextColor = -727947,
+            TextFont = FF.Funcs.Translate("LibelSuitRg, 18, aa"),
+            group = "Game",
+            save_in = "common"
         }
-    }
 
-    TextStyle.Achievement.Title = {
-        DisabledRolloverTextColor = -10197916,
-        DisabledTextColor = -10197916,
-        RolloverTextColor = -727947,
-        TextColor = -727947,
-        TextFont = FFL_Translate("LibelSuitRg, 18, aa"),
-        group = "Game",
-        id = "Title",
-        save_in = "common"
-    }
+        TextStyle.PrimaryAchievement.Text = {
+            DisabledRolloverTextColor = -7566196,
+            DisabledTextColor = -7566196,
+            RolloverTextColor = -1,
+            TextColor = -1,
+            TextFont = FF.Funcs.Translate("LibelSuitRg, 16, aa"),
+            group = "Game",
+            save_in = "common"
+        }
 
-    TextStyle.Achievement.Text = {
-        DisabledRolloverTextColor = -7566196,
-        DisabledTextColor = -7566196,
-        RolloverTextColor = -1,
-        TextColor = -1,
-        TextFont = FFL_Translate("LibelSuitRg, 16, aa"),
-        group = "Game",
-        id = "Description",
-        save_in = "common"
-    }
+        TextStyle.PrimaryAchievement.Progress = {
+            DisabledRolloverTextColor = -7566196,
+            DisabledTextColor = -7566196,
+            RolloverTextColor = -1,
+            TextColor = -1, --2do: find a better colour
+            TextFont = FF.Funcs.Translate("LibelSuitRg, 18, aa"),
+            group = "Game",
+            save_in = "common"
+        }
 
-    TextStyle.Achievement.Text_2 = {
-        DisabledRolloverTextColor = -7566196,
-        DisabledTextColor = -7566196,
-        RolloverTextColor = -1,
-        TextColor = -1, --2do: find a better colour
-        TextFont = FFL_Translate("LibelSuitRg, 18, aa"),
-        group = "Game",
-        id = "Progress",
-        save_in = "common"
-    }
+    --generate id
+    for CatKey, Cat in pairs(TextStyle) do
+        for StyleKey, Style in pairs(Cat) do
+            Style.id = "FF_" .. tostring(CatKey) .. "_" .. tostring(StyleKey)
+            if not Style.id then
+                Log("ERROR", "No style id!")
+                return false
+            end
 
-
-    for Category, Style in pairs(TextStyle) do
-
-        Style.id = "FF_" .. tostring(Category) .. Style.id
-        if TextStyle[Style.id] then
-            if not TextStyle[Style.id] == TextStyles[Style.id] then
+            if TextStyles[Style.id] then
                 TextStyles[Style.id]:delete()
             end
-        end
 
-        if not TextStyle[Style.id] then
             PlaceObj("TextStyle", Style)
         end
     end
-
     return true
 end

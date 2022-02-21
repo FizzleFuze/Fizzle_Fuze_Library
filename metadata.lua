@@ -1,8 +1,8 @@
 return PlaceObj('ModDef', {
 	'title', "Fizzle Fuze's Library",
-	'description', "Library for mods by Fizzle_Fuze",
+	'description', "Contains a bunch of stuff which my other mods use. Not meant to be used by itself.",
 	'image', "Images/thumbnail.png",
-	'last_changes', "https://github.com/FizzleFuze/Fizzle_Fuze_Library/blob/master/changelog.md",
+	'last_changes', "https://github.com/Surviving-Mars-Mods/Fizzle_Fuze_Library/blob/master/changelog.md",
 	'ignore_files', {
 		"*.git/*",
 		"*.svn/*",
