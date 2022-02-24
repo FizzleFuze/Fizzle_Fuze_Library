@@ -2,7 +2,7 @@
 ✔ Library of code for my other mods
 
 ### Description:
-This mod does nothing by itself, but contains a lot of code which my other mods depend on.
+This mod does nothing by itself, but contains code which my other mods depend on.
 
 ### Options:
 This mod has no options... yet!
@@ -27,6 +27,7 @@ I appreciate feedback on my mods and ideas for new ones!
 
     ✔ Discord:https://discord.gg/kTgYq9UjWx
     ✔ Reddit: /u/Fizzle_Fuze (/r/SurvivingMars)
+    ✔ GitHub: https://github.com/Surviving-Mars-Mods
     ✔ Email: mods@fizzlefuze.com
 
 See [*Info/ContactMe.txt*](Info/ContactMe.txt) for more info on contacting me.

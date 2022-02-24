@@ -1,4 +1,7 @@
-# Version 1.5
+## Version 1.6
+ - caught error when less than 3 arguments are passed in to log function
+
+### Version 1.5
 - Consolidated variables into FF.Lib
 - Consolidated functions into FF.Functions
 - Added Text Styles

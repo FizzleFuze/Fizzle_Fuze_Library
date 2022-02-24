@@ -37,6 +37,14 @@ function FF.Funcs.LogMessage(...)
         return
     end
 
+    if #Arg < 3 then
+        local Msg = "/?.lua CRITICAL: Logging error! Less than 3 arguments."
+        print(Msg)
+        FlushLogFile()
+        FF.Lib.MsgLog[#FF.Lib.MsgLog+1] = Msg
+        return
+    end
+
     for _, ST in ipairs(SevType) do
         if Arg[3] == ST then -- 3rd arg = severity
             Arg[3] = Arg[3]..": "
