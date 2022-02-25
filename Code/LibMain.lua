@@ -1,7 +1,7 @@
 --See LICENSE for copyright info
 
 --setup global if needed
-if not FF then
+if not rawget(_G, 'FF') then
     FF = {
         Lib = {
             Debug = false,
@@ -40,6 +40,10 @@ function FF.Funcs.LogMessage(...)
     if #Arg < 3 then
         local Msg = "/?.lua CRITICAL: Logging error! Less than 3 arguments."
         print(Msg)
+        print("Args = ", Arg)
+        for k,v in pairs(Arg) do
+            print (k, " = ", v)
+        end
         FlushLogFile()
         FF.Lib.MsgLog[#FF.Lib.MsgLog+1] = Msg
         return
@@ -75,7 +79,7 @@ end
 
 --wrapper logging function for this file
 local function Log(...)
-    FF.Lib.MsgLogMessage(CurrentModDef.title, "LibMain", ...)
+    FF.Funcs.LogMessage(CurrentModDef.title, "LibMain", ...)
 end
 
 --Translate function which automatically gets ID
