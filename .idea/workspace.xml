@@ -7,6 +7,7 @@
     <list default="true" id="521605f0-1e4d-41d2-aec1-c797e15f64fc" name="Changes" comment="Version 1.6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/LibMain.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/LibMain.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/UI/XTemplates.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/UI/XTemplates.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Info/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Info/changelog.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File" value="GitIgnore" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../test" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -99,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645714827935</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Version 1.6">
+      <created>1645809986134</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1645809986134</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

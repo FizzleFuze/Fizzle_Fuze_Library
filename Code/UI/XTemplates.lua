@@ -2,28 +2,61 @@
 
 --wrapper logging function for this file
 local function Log(...)
-    FF.Funcs.Log(CurrentModDef.title, "XTemplates", ...)
+    FF.Funcs.LogMessage(CurrentModDef.title, "XTemplates", ...)
 end
 
--- yay templates
-function FF.Funcs.CreateXTemplates()
+-- yay "templates"
+function FF.X.Create(Type, id, Parent, TextStyle)
 
-    --templates are for linking to objects it seems.. not what I need right now.
+    if not id then
+        Log("ERROR", "Cannot create X object: no id specified!")
+    end
 
-    --[[
-    PlaceObj('XTemplate', {
-        __is_kind_of = "XText",
-        group = "FF_PrimaryAchievement",
-        id = "FF_PrimaryAchievementText",
-        PlaceObj('XTemplateWindow', {
-          '__class', "XText",
-          'Dock', 'Top',
-          'HandleKeyboard', false,
-          'HideOnEmpty', true,
-          'Padding', box(2, 1, 2, 1),
-          'Translate', true,
-        }),
-    })
-    --]]
+    if not Parent then
+        Log("ERROR", "Cannot create X object: no Parent specified!")
+    end
 
+    if Type == "Text" then
+
+        if not TextStyles[TextStyle] then
+            Log("ERROR", "Cannot create XText: Invalid TextStyle: ", tostring(TextStyle))
+            return
+        end
+
+        local Text = XText:new({
+            Dock = 'top',
+            HandleKeyboard = false,
+            Id = id,
+            TextStyle = TextStyle,
+            Translate = true,
+            VAlign = 'stretch'
+        }, Parent)
+        return Text
+    end
+
+    if Type == "Window" then
+        local Window = XWindow:new({
+            Dock = "box",
+            HAlign = "center",
+            HandleKeyboard = false,
+            HandleMouse = true,
+            Id = id,
+            IdNode = true,
+            Padding = box(2,2,2,2),
+            RolloverTemplate = "Rollover",
+            VAlign = "top",
+        }, Parent)
+        return Window
+    end
+
+    if Type == "Frame" then
+        local Frame = XFrame:new({
+            Dock = "box",
+            HandleKeyboard = false,
+            Id = id,
+            Padding = box(5,0,5,5),
+            VAlign = "stretch",
+        }, Parent)
+        return Frame
+    end
 end

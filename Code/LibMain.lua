@@ -7,7 +7,8 @@ if not rawget(_G, 'FF') then
             Debug = false,
             MsgLog = { "*** Fizzle Fuze's Library loaded! ***" }
         },
-        Funcs = { }
+        Funcs = { },
+        X = { }
     }
 end
 
@@ -110,10 +111,7 @@ end
 
 --start yer engines
 local function Init()
-    if not FF.Funcs.CreateTextStyles() then
-        Log("CRITICAL", "Failed to initialize library! [Could not create text styles]")
-        return
-    end
+    FF.Funcs.CreateTextStyles()
 end
 
 --event handling
@@ -121,9 +119,7 @@ OnMsg.CityStart = Init
 OnMsg.LoadGame = Init
 
 function OnMsg.ModsReloaded()
-    if MainCity then
-        Init()
-    end
+    Init()
 end
 
 function OnMsg.NewHour(Hour)
