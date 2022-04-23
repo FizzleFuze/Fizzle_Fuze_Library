@@ -27,7 +27,7 @@ local function PrintLog()
 end
 
 --main logging function
-function FF.Funcs.LogMessage(...)
+function FF.LogMessage(...)
     local Sev, Arg = nil, {...}
     local SevType = {"INFO", "DEBUG", "WARNING", "ERROR", "CRITICAL"}
 
@@ -77,6 +77,7 @@ function FF.Funcs.LogMessage(...)
         PrintLog()
     end
 end
+FF.Funcs.LogMessage = FF.LogMessage
 
 --wrapper logging function for this file
 local function Log(...)
@@ -84,7 +85,7 @@ local function Log(...)
 end
 
 --Translate function which automatically gets ID
-function FF.Funcs.Translate(TString)
+function FF.Translate(TString)
     local id = IsT(TString)
 
     if type(id) == "number" then -- already has a translation
@@ -97,9 +98,10 @@ function FF.Funcs.Translate(TString)
         return T(id, TString)
     end
 end
+FF.Funcs.Translate = FF.Translate
 
 --Format number as a pretty string or a T
-function FF.Funcs.FormatNumber(Number, AsT)
+function FF.FormatNumber(Number, AsT)
     AsT = AsT or false
 
     local Ret = InfobarObj.FmtRes(nil, Number)
@@ -108,6 +110,7 @@ function FF.Funcs.FormatNumber(Number, AsT)
     end
     return Ret
 end
+FF.Funcs.FormatNumber = FF.FormatNumber
 
 --start yer engines
 local function Init()

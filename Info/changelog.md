@@ -1,4 +1,7 @@
-## Version 1.6
+## Version 1.7
+ - removed '.Funcs' from global function namespace (preserved for backwards compatibility)
+
+### Version 1.6
  - caught error when less than 3 arguments are passed in to log function
  - "fixed" undefined global "error"
  - Updated X functions 
