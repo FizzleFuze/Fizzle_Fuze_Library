@@ -1,10 +1,13 @@
-## Version 1.7
- - removed '.Funcs' from global function namespace (preserved for backwards compatibility)
+## Version 1.8
+- added integer support for severity types in log message 
+
+### Version 1.7
+- removed '.Funcs' from global function namespace (preserved for backwards compatibility)
 
 ### Version 1.6
- - caught error when less than 3 arguments are passed in to log function
- - "fixed" undefined global "error"
- - Updated X functions 
+- caught error when less than 3 arguments are passed in to log function
+- "fixed" undefined global "error"
+- Updated X functions 
 
 ### Version 1.5
 - Consolidated variables into FF.Lib

@@ -18,8 +18,8 @@ return PlaceObj('ModDef', {
 	'pops_any_uuid', "0dff8bff-bbfb-4290-a19e-1af4e8799c24",
 	'author', "Fizzle Fuze",
 	'version_major', 1,
-	'version_minor', 7,
-	'version', 88,
+	'version_minor', 8,
+	'version', 41235,
 	'lua_revision', 1009413,
 	'saved_with_revision', 1010838,
 	'code', {

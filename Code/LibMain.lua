@@ -50,17 +50,21 @@ function FF.LogMessage(...)
         return
     end
 
-    for _, ST in ipairs(SevType) do
-        if Arg[3] == ST then -- 3rd arg = severity
-            Arg[3] = Arg[3]..": "
-            Sev = Arg[3]
-            break
+    if type(Arg[3]) == "number" then
+        Sev = SevType[Arg[3]] .. ": "
+    else
+        for _, ST in ipairs(SevType) do
+            if Arg[3] == ST then -- 3rd arg = severity
+                Arg[3] = Arg[3]..": "
+                Sev = Arg[3]
+                break
+            end
         end
     end
 
     if not Sev then
         Sev = "DEBUG: "
-        Arg[3] = "DEBUG: "..Arg[3]
+        Arg[3] = "DEBUG: ".. Arg[3]
     end
 
     if (Sev == "DEBUG: " or Sev == "INFO: ") and not FF.Lib.Debug then

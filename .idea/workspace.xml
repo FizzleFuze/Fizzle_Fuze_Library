@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efac138d-be35-4a5e-82fb-169dd0590ff0" name="Changes" comment="Version 1.6">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Code/LibMain.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Code/LibMain.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Info/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/Info/changelog.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/items.lua" beforeDir="false" afterPath="$PROJECT_DIR$/items.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/metadata.lua" beforeDir="false" afterPath="$PROJECT_DIR$/metadata.lua" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,13 +29,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nik/AppData/Roaming/Surviving Mars/Mods/Fizzle Fuze's Library&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/nik/AppData/Roaming/Surviving Mars/Mods/Funded-Casino"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
